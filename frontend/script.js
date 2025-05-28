@@ -43,25 +43,35 @@ async function enviarMensagem() {
 
   adicionarMensagem("Você", msg);
   input.value = "";
-
   mostrarDigitando();
 
+  // URL fixa para ambiente local (ajustável para produção)
+const URL_API = window.location.hostname.includes("localhost") || window.location.hostname === "127.0.0.1"
+  ? "http://127.0.0.1:8000/responder"
+  : "https://projeto-chat-gabi.onrender.com/responder";
+
+  console.log("📤 Enviando para:", URL_API);
+
   try {
-const resposta = await fetch("https://projeto-chat-gabi.onrender.com/responder", {
+    const resposta = await fetch(URL_API, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ mensagem: msg })
-    }).then(res => res.json());
+    });
+
+    const dados = await resposta.json();
+    console.log("📥 Resposta recebida:", dados);
 
     removerDigitando();
 
-    if (!resposta.resposta || resposta.resposta.length < 10) {
+    if (!dados.resposta || dados.resposta.length < 10) {
       adicionarMensagem("GabiBot", "Não consegui te responder certinho agora 😕<br>Se quiser, posso te levar pro WhatsApp com o Matheus: <a href='https://wa.me/5517997061273' target='_blank'>📲 Falar no WhatsApp</a>");
     } else {
-      adicionarMensagem("GabiBot", resposta.resposta);
+      adicionarMensagem("GabiBot", dados.resposta);
     }
   } catch (e) {
     removerDigitando();
+    console.error("❌ Erro de conexão:", e);
     adicionarMensagem("GabiBot", "Tivemos um probleminha técnico 😅<br>Se preferir, fale direto com o Matheus: <a href='https://wa.me/5517997061273' target='_blank'>📲 WhatsApp</a>");
   }
 }
