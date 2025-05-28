@@ -47,7 +47,7 @@ async function enviarMensagem() {
   mostrarDigitando();
 
   try {
-    const resposta = await fetch("/responder", {
+const resposta = await fetch("https://projeto-chat-gabi.onrender.com/responder", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ mensagem: msg })
