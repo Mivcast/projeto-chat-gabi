@@ -1,0 +1,85 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-box {
+  height: 400px;
+  padding: 15px;
+  overflow-y: auto;
+  border-bottom: 1px solid #eee;
+}
+
+.chat-box div {
+  margin-bottom: 12px;
+}
+
+.msg-usuario {
+  text-align: right;
+}
+
+.msg-bot {
+  text-align: left;
+}
+
+.input-area {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-right: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.input-area button {
+  padding: 12px 18px;
+  background: #0077cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.input-area button:hover {
+  background: #005fa3;
+}
+
+.quick-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  background: #f9f9f9;
+  justify-content: space-around;
+}
+
+.quick-buttons button {
+  flex: 1;
+  padding: 8px;
+  font-size: 13px;
+  border: none;
+  background: #eeeeee;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.quick-buttons button:hover {
+  background: #ddd;
+}

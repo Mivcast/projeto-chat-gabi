@@ -1,0 +1,122 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.chat-box {
+  height: 450px;
+  padding: 15px;
+  overflow-y: auto;
+  border-bottom: 1px solid #eee;
+}
+
+.chat-box div {
+  margin-bottom: 12px;
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.msg-usuario {
+  background: #d1e7dd;
+  color: #1a1a1a;
+  margin-left: auto;
+  border-bottom-right-radius: 2px;
+  text-align: left;
+}
+
+.msg-bot {
+  background: #e9ecef;
+  color: #1a1a1a;
+  margin-right: auto;
+  border-bottom-left-radius: 2px;
+  text-align: left;
+}
+
+.input-area {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-right: 1px solid #ddd;
+  font-size: 14px;
+  outline: none;
+}
+
+.input-area button {
+  padding: 12px 18px;
+  background: #0077cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.input-area button:hover {
+  background: #005fa3;
+}
+
+.quick-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  background: #f8f9fa;
+  justify-content: space-around;
+  border-top: 1px solid #eee;
+}
+
+.quick-buttons button {
+  flex: 1;
+  padding: 8px;
+  font-size: 13px;
+  border: none;
+  background: #dee2e6;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.quick-buttons button:hover {
+  background: #ced4da;
+}
+
+#topo-gabi {
+  background: #0077cc;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#topo-gabi img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}

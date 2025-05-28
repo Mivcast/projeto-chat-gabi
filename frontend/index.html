@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>GabiBot – MivCast</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="chat-container">
+    <div id="topo-gabi">
+      <img src="https://i.imgur.com/sS3R2aC.png" alt="GabiBot"> <!-- você pode trocar o link por sua imagem -->
+      GabiBot • Secretária Virtual
+    </div>
+    <div id="chat-box" class="chat-box"></div>
+    <div class="input-area">
+      <input id="user-input" type="text" placeholder="Digite sua mensagem..." onkeydown="if(event.key==='Enter'){enviarMensagem()}">
+      <button onclick="enviarMensagem()">Enviar</button>
+    </div>
+    <div class="quick-buttons">
+      <button onclick="respostaBotao('falar')">📞 Falar com Matheus</button>
+      <button onclick="respostaBotao('agendar')">📅 Agendar Reunião</button>
+      <button onclick="respostaBotao('servicos')">🛠 Ver Serviços</button>
+      <button onclick="respostaBotao('quemSomos')">🏢 Quem Somos</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
