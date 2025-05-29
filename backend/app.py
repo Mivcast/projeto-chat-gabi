@@ -1,10 +1,11 @@
 from fastapi import FastAPI, Request
+from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from backend.assistente_virtual import gerar_resposta_gabi
+from gerar import gerar_resposta_gabi
 
 app = FastAPI()
 
-# Permite requisições de qualquer origem (ideal para testes locais ou integração em sites)
+# Liberar CORS para funcionar no navegador
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -12,14 +13,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-from pydantic import BaseModel
-
+# Modelo esperado do corpo da requisição
 class Mensagem(BaseModel):
     mensagem: str
 
 @app.post("/responder")
-async def responder(dados: Mensagem):
-    pergunta = dados.mensagem
-    resposta = gerar_resposta_gabi(pergunta)
+async def responder(body: Mensagem):
+    resposta = gerar_resposta_gabi(body.mensagem)
     return {"resposta": resposta}
-
