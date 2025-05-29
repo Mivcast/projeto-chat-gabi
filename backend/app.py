@@ -12,9 +12,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from pydantic import BaseModel
+
+class Mensagem(BaseModel):
+    mensagem: str
+
 @app.post("/responder")
-async def responder(request: Request):
-    dados = await request.json()
-    pergunta = dados.get("mensagem", "")
+async def responder(dados: Mensagem):
+    pergunta = dados.mensagem
     resposta = gerar_resposta_gabi(pergunta)
     return {"resposta": resposta}
+
