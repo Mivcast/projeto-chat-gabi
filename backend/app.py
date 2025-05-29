@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from gerar import gerar_resposta_gabi
+from backend.gerar import gerar_resposta_gabi
 
 app = FastAPI()
 
